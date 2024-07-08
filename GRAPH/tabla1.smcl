@@ -1,0 +1,845 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}E:\tsis\inespaña1\GRAPH\tabla1.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 5 May 2019, 02:59:37
+{txt}
+{com}. //_1q
+. qui cd "E:\tsis\inespaña1\DTA"
+{txt}
+{com}. use baseFinal.dta, replace
+{txt}
+{com}. foreach A in 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 {c -(}
+{txt}  2{com}. qui sum PESON if ANOPAR==`A'
+{txt}  3{com}. scalar define N`A'=r(N)
+{txt}  4{com}. scalar define PesoM`A'=round(r(mean),.1)
+{txt}  5{com}. scalar define PesoV`A'=round(r(sd),.01)
+{txt}  6{com}. qui sum malnut if ANOPAR==`A'
+{txt}  7{com}. scalar define ProMalnut`A'=round(r(mean),.001)
+{txt}  8{com}. scalar define ProMalnutV`A'=round(r(sd),.001)
+{txt}  9{com}. qui sum SEXO if ANOPAR==`A'
+{txt} 10{com}. scalar define sexom`A'=round(r(mean),.001)
+{txt} 11{com}. scalar define sexov`A'=round(r(sd),.001)
+{txt} 12{com}. qui sum Ct0 if ANOPAR==`A'
+{txt} 13{com}. scalar define HP`A'=r(mean)
+{txt} 14{com}. qui sum NUMH if ANOPAR==`A'
+{txt} 15{com}. scalar define NUMH`A'=round(r(mean),.01)
+{txt} 16{com}. scalar define NUMHV`A'=round(r(sd),.01)
+{txt} 17{com}. qui sum partner if ANOPAR==`A'
+{txt} 18{com}. scalar define part`A'=round(r(mean),.01)
+{txt} 19{com}. scalar define partv`A'=round(r(sd),.01)
+{txt} 20{com}. qui sum PIBES if ANOPAR==`A'
+{txt} 21{com}. scalar define pibesm`A'=r(mean)
+{txt} 22{com}. {c )-}
+{txt}
+{com}. 
+. *qui sum PESON if ANOPAR==2007
+. *scalar define N2007=r(N)
+. *scalar define M2007=r(mean)
+. *qui sum PESON if ANOPAR==2008
+. *scalar define N2008=r(N)
+. *qui sum PESON if ANOPAR==2009
+. *scalar define N2009=r(N)
+. *{c )-}
+. //_2
+. display N2007
+{res}448039
+{txt}
+{com}. //_3
+. display PesoM2007 
+{res}3249.8
+{txt}
+{com}. //_4
+. display PesoM2008
+{res}3253.3
+{txt}
+{com}. //_5
+. display PesoM2009
+{res}3250.8
+{txt}
+{com}. //_6
+. display PesoM2010
+{res}3253
+{txt}
+{com}. //_7
+. display PesoM2011
+{res}3255.8
+{txt}
+{com}. //_8
+. display PesoM2012
+{res}3255.8
+{txt}
+{com}. //_9
+. display PesoM2013
+{res}3252.1
+{txt}
+{com}. //_10
+. display PesoM2014
+{res}3250.7
+{txt}
+{com}. //_11
+. display PesoM2015
+{res}3249
+{txt}
+{com}. //_12
+. display PesoM2016
+{res}3250.6
+{txt}
+{com}. //_13
+. display PesoM2017
+{res}3247.2
+{txt}
+{com}. //_14
+. display PesoV2007 
+{res}504.44
+{txt}
+{com}. //_15
+. display PesoV2008
+{res}513.4
+{txt}
+{com}. //_16
+. display PesoV2009
+{res}511.6
+{txt}
+{com}. //_17
+. display PesoV2010
+{res}509.53
+{txt}
+{com}. //_18
+. display PesoV2011
+{res}510.33
+{txt}
+{com}. //_19
+. display PesoV2012
+{res}510.03
+{txt}
+{com}. //_20
+. display PesoV2013
+{res}508.37
+{txt}
+{com}. //_21
+. display PesoV2014
+{res}507.96
+{txt}
+{com}. //_22
+. display PesoV2015
+{res}508.02
+{txt}
+{com}. //_23
+. display PesoV2016
+{res}505.65
+{txt}
+{com}. //_24
+. display PesoV2017
+{res}506.2
+{txt}
+{com}. //_25
+. display ProMalnut2007 
+{res}.063
+{txt}
+{com}. //_26
+. display ProMalnut2008
+{res}.065
+{txt}
+{com}. //_27
+. display ProMalnut2009
+{res}.064
+{txt}
+{com}. //_28
+. display ProMalnut2010
+{res}.064
+{txt}
+{com}. //_29
+. display ProMalnut2011
+{res}.063
+{txt}
+{com}. //_30
+. display ProMalnut2012
+{res}.063
+{txt}
+{com}. //_31
+. display ProMalnut2013
+{res}.064
+{txt}
+{com}. //_32
+. display ProMalnut2014
+{res}.063
+{txt}
+{com}. //_33
+. display ProMalnut2015
+{res}.065
+{txt}
+{com}. //_34
+. display ProMalnut2016
+{res}.063
+{txt}
+{com}. //_35
+. display ProMalnut2017
+{res}.065
+{txt}
+{com}. //_36
+. display ProMalnutV2007 
+{res}.244
+{txt}
+{com}. //_37
+. display ProMalnutV2008
+{res}.246
+{txt}
+{com}. //_38
+. display ProMalnutV2009
+{res}.245
+{txt}
+{com}. //_39
+. display ProMalnutV2010
+{res}.245
+{txt}
+{com}. //_40
+. display ProMalnutV2011
+{res}.243
+{txt}
+{com}. //_41
+. display ProMalnutV2012
+{res}.243
+{txt}
+{com}. //_42
+. display ProMalnutV2013
+{res}.244
+{txt}
+{com}. //_43
+. display ProMalnutV2014
+{res}.244
+{txt}
+{com}. //_44
+. display ProMalnutV2015
+{res}.246
+{txt}
+{com}. //_45
+. display ProMalnutV2016
+{res}.244
+{txt}
+{com}. //_46
+. display ProMalnutV2017
+{res}.246
+{txt}
+{com}. //_47
+. display sexom2007 
+{res}.516
+{txt}
+{com}. //_48
+. display sexom2008 
+{res}.517
+{txt}
+{com}. //_49
+. display sexom2009 
+{res}.518
+{txt}
+{com}. //_50
+. display sexom2010 
+{res}.516
+{txt}
+{com}. //_51
+. display sexom2011 
+{res}.516
+{txt}
+{com}. //_52
+. display sexom2012 
+{res}.516
+{txt}
+{com}. //_53
+. display sexom2013 
+{res}.515
+{txt}
+{com}. //_54
+. display sexom2014 
+{res}.517
+{txt}
+{com}. //_55
+. display sexom2015 
+{res}.515
+{txt}
+{com}. //_56
+. display sexom2016 
+{res}.515
+{txt}
+{com}. //_57
+. display sexom2017 
+{res}.515
+{txt}
+{com}. //_58
+. display sexov2007 
+{res}.5
+{txt}
+{com}. //_59
+. display sexov2008 
+{res}.5
+{txt}
+{com}. //_60
+. display sexov2009 
+{res}.5
+{txt}
+{com}. //_61
+. display sexov2010 
+{res}.5
+{txt}
+{com}. //_62
+. display sexov2011 
+{res}.5
+{txt}
+{com}. //_63
+. display sexov2012 
+{res}.5
+{txt}
+{com}. //_64
+. display sexov2013 
+{res}.5
+{txt}
+{com}. //_65
+. display sexov2014 
+{res}.5
+{txt}
+{com}. //_66
+. display sexov2015 
+{res}.5
+{txt}
+{com}. //_67
+. display sexov2016 
+{res}.5
+{txt}
+{com}. //_68
+. display sexov2017 
+{res}.5
+{txt}
+{com}. //_69
+. display round(1.865813028,.01)
+{res}1.87
+{txt}
+{com}. //_70
+. display round(    -0.482674966,.01)
+{res}-.48
+{txt}
+{com}. //_71
+. display round(    -4.424062114,.01)
+{res}-4.42
+{txt}
+{com}. //_72
+. display round(-0.445350775,.01)
+{res}-.45
+{txt}
+{com}. //_73
+. display round(-1.349930077,.01)
+{res}-1.35
+{txt}
+{com}. //_74
+. display round(-2.990755144,.01)
+{res}-2.99
+{txt}
+{com}. //_75
+. display round(-1.383096773,.01)
+{res}-1.38
+{txt}
+{com}. //_76
+. display round(1.683527291,.01)
+{res}1.68
+{txt}
+{com}. //_77
+. display round(    3.725128085,.01)
+{res}3.73
+{txt}
+{com}. //_78
+. display round(    3.086610965,.01)
+{res}3.09
+{txt}
+{com}. //_79
+. display round(2.736942516,.01)
+{res}2.74
+{txt}
+{com}. //_80
+. display HP2007
+{res}1.841066
+{txt}
+{com}. //_81
+. display HP2008
+{res}.31106556
+{txt}
+{com}. //_82
+. display HP2009
+{res}-3.2933619
+{txt}
+{com}. //_83
+. display HP2010
+{res}.97469141
+{txt}
+{com}. //_84
+. display HP2011
+{res}.2655299
+{txt}
+{com}. //_85
+. display HP2012
+{res}-1.8687445
+{txt}
+{com}. //_86
+. display HP2013
+{res}-1.2779172
+{txt}
+{com}. //_87
+. display HP2014
+{res}.79666716
+{txt}
+{com}. //_88
+. display HP2015
+{res}1.9402395
+{txt}
+{com}. //_89
+. display HP2016
+{res}.62504036
+{txt}
+{com}. //_90
+. display HP2017
+{res}-.1527207
+{txt}
+{com}. //_91
+. display round(8.232000351,.01)
+{res}8.23
+{txt}
+{com}. //_92
+. display round(11.25399971,.01)
+{res}11.25
+{txt}
+{com}. //_93
+. display round(17.85700035,.01)
+{res}17.86
+{txt}
+{com}. //_94
+. display round(19.86000061,.01)
+{res}19.86
+{txt}
+{com}. //_95
+. display round(21.38999939,.01)
+{res}21.39
+{txt}
+{com}. //_96
+. display round(24.78700066,.01)
+{res}24.79
+{txt}
+{com}. //_97
+. display round(26.09399986,.01)
+{res}26.09
+{txt}
+{com}. //_98
+. display round(24.44099998,.01)
+{res}24.44
+{txt}
+{com}. //_99
+. display round(22.05699921,.01)
+{res}22.06
+{txt}
+{com}. //_100
+. display round(19.63500023,.01)
+{res}19.64
+{txt}
+{com}. //_101
+. display round(17.22400093,.01)
+{res}17.22
+{txt}
+{com}. //_102
+. display round(10.3373003,.01)
+{res}10.34
+{txt}
+{com}. //_103
+. display round(15.10589981,.01)
+{res}15.11
+{txt}
+{com}. //_104
+. display round(    24.25589943,.01)
+{res}24.26
+{txt}
+{com}. //_105
+. display round(    26.9435997,.01)
+{res}26.94
+{txt}
+{com}. //_106
+. display round(    28.58419991,.01)
+{res}28.58
+{txt}
+{com}. //_107
+. display round(    33.43529892,.01)
+{res}33.44
+{txt}
+{com}. //_108
+. display round(    35.0992012,.01)
+{res}35.1
+{txt}
+{com}. //_109
+. display round(    33.09569931,.01)
+{res}33.1
+{txt}
+{com}. //_110
+. display round(    30.36109924,.01)
+{res}30.36
+{txt}
+{com}. //_111
+. display round(    27.45120049,.01)
+{res}27.45
+{txt}
+{com}. //_112
+. display round(    24.51910019,.01)
+{res}24.52
+{txt}
+{com}. //_113
+. display round(8.138699532,.01)
+{res}8.14
+{txt}
+{com}. //_114
+. display round(10.45069981,.01)
+{res}10.45
+{txt}
+{com}. //_115
+. display round(    16.83200073,.01)
+{res}16.83
+{txt}
+{com}. //_116
+. display round(    18.97369957,.01)
+{res}18.97
+{txt}
+{com}. //_117
+. display round(    21.16640091,.01)
+{res}21.17
+{txt}
+{com}. //_118
+. display round(    24.10400009,.01)
+{res}24.1
+{txt}
+{com}. //_119
+. display round(    25.85149956,.01)
+{res}25.85
+{txt}
+{com}. //_120
+. display round(24.15839958,.01)
+{res}24.16
+{txt}
+{com}. //_121
+. display round(    21.57290077,.01)
+{res}21.57
+{txt}
+{com}. //_122
+. display round(    19.16139984,.01)
+{res}19.16
+{txt}
+{com}. //_123
+. display round(16.97380066,.01)
+{res}16.97
+{txt}
+{com}. //_124
+. display round(5.990799904,.01)
+{res}5.99
+{txt}
+{com}. //_125
+. display round(6.305699825,.01)
+{res}6.31
+{txt}
+{com}. //_126
+. display round(9.652000427,.01)
+{res}9.65
+{txt}
+{com}. //_127
+. display round(11.15310001,.01)
+{res}11.15
+{txt}
+{com}. //_128
+. display round(    12.48449993,.01)
+{res}12.48
+{txt}
+{com}. //_129
+. display round(    14.88570023,.01)
+{res}14.89
+{txt}
+{com}. //_130
+. display round(15.98009968,.01)
+{res}15.98
+{txt}
+{com}. //_131
+. display round(14.74510002,.01)
+{res}14.75
+{txt}
+{com}. //_132
+. display round(    13.18889999,.01)
+{res}13.19
+{txt}
+{com}. //_133
+. display round(11.67199993,.01)
+{res}11.67
+{txt}
+{com}. //_134
+. display round(9.964099884,.01)
+{res}9.96
+{txt}
+{com}. //_135
+. display round(2579.310264,.01)
+{res}2579.31
+{txt}
+{com}. //_136
+. display round(    2791.107224,.01)
+{res}2791.11
+{txt}
+{com}. //_137
+. display round(    2918.820792,.01)
+{res}2918.82
+{txt}
+{com}. //_138
+. display round(    2888.51094,.01)
+{res}2888.51
+{txt}
+{com}. //_139
+. display round(    2920.111074,.01)
+{res}2920.11
+{txt}
+{com}. //_140
+. display round(    2900.339612,.01)
+{res}2900.34
+{txt}
+{com}. //_141
+. display round(    2935.834905,.01)
+{res}2935.83
+{txt}
+{com}. //_142
+. display round(    3039.959984,.01)
+{res}3039.96
+{txt}
+{com}. //_143
+. display round(    3175.133883,.01)
+{res}3175.13
+{txt}
+{com}. //_144
+. display round(3259.802775,.01)
+{res}3259.8
+{txt}
+{com}. //_145
+. display NUMH2007 
+{res}1.6
+{txt}
+{com}. //_146
+. display NUMH2008 
+{res}1.63
+{txt}
+{com}. //_147
+. display NUMH2009 
+{res}1.63
+{txt}
+{com}. //_148
+. display NUMH2010 
+{res}1.64
+{txt}
+{com}. //_149
+. display NUMH2011 
+{res}1.64
+{txt}
+{com}. //_150
+. display NUMH2012 
+{res}1.64
+{txt}
+{com}. //_151
+. display NUMH2013 
+{res}1.63
+{txt}
+{com}. //_152
+. display NUMH2014 
+{res}1.64
+{txt}
+{com}. //_153
+. display NUMH2015 
+{res}1.64
+{txt}
+{com}. //_154
+. display NUMH2016 
+{res}1.66
+{txt}
+{com}. //_155
+. display NUMH2017 
+{res}1.67
+{txt}
+{com}. //_156
+. display NUMHV2007 
+{res}.82
+{txt}
+{com}. //_157
+. display NUMHV2008 
+{res}.86
+{txt}
+{com}. //_158
+. display NUMHV2009 
+{res}.87
+{txt}
+{com}. //_159
+. display NUMHV2010 
+{res}.88
+{txt}
+{com}. //_160
+. display NUMHV2011 
+{res}.88
+{txt}
+{com}. //_161
+. display NUMHV2012 
+{res}.89
+{txt}
+{com}. //_162
+. display NUMHV2013 
+{res}.85
+{txt}
+{com}. //_163
+. display NUMHV2014 
+{res}.85
+{txt}
+{com}. //_164
+. display NUMHV2015 
+{res}.81
+{txt}
+{com}. //_165
+. display NUMHV2016 
+{res}.82
+{txt}
+{com}. //_166
+. display NUMHV2017 
+{res}.83
+{txt}
+{com}. //_167
+. display  part2007 
+{res}.87
+{txt}
+{com}. //_168
+. display  part2008 
+{res}.84
+{txt}
+{com}. //_169
+. display  part2009 
+{res}.83
+{txt}
+{com}. //_170
+. display  part2010 
+{res}.81
+{txt}
+{com}. //_171
+. display  part2011 
+{res}.8
+{txt}
+{com}. //_172
+. display  part2012 
+{res}.78
+{txt}
+{com}. //_173
+. display  part2013 
+{res}.77
+{txt}
+{com}. //_174
+. display  part2014 
+{res}.75
+{txt}
+{com}. //_175
+. display  part2015 
+{res}.73
+{txt}
+{com}. //_176
+. display  part2016 
+{res}.67
+{txt}
+{com}. //_177
+. display  part2017 
+{res}.65
+{txt}
+{com}. //_178
+. display partv2007 
+{res}.34
+{txt}
+{com}. //_179
+. display partv2008 
+{res}.36
+{txt}
+{com}. //_180
+. display partv2009 
+{res}.38
+{txt}
+{com}. //_181
+. display partv2010 
+{res}.39
+{txt}
+{com}. //_182
+. display partv2011 
+{res}.4
+{txt}
+{com}. //_183
+. display partv2012 
+{res}.41
+{txt}
+{com}. //_184
+. display partv2013 
+{res}.42
+{txt}
+{com}. //_185
+. display partv2014 
+{res}.44
+{txt}
+{com}. //_186
+. display partv2015 
+{res}.45
+{txt}
+{com}. //_187
+. display partv2016 
+{res}.47
+{txt}
+{com}. //_188
+. display partv2017 
+{res}.48
+{txt}
+{com}. //_189
+. display N2007 
+{res}448039
+{txt}
+{com}. //_190
+. display N2008
+{res}472384
+{txt}
+{com}. //_191
+. display N2009
+{res}448069
+{txt}
+{com}. //_192
+. display N2010
+{res}439700
+{txt}
+{com}. //_193
+. display N2011
+{res}426103
+{txt}
+{com}. //_194
+. display N2012
+{res}410099
+{txt}
+{com}. //_195
+. display N2013
+{res}383510
+{txt}
+{com}. //_196
+. display N2014
+{res}383985
+{txt}
+{com}. //_197
+. display N2015
+{res}377562
+{txt}
+{com}. //_198
+. display N2016
+{res}371013
+{txt}
+{com}. //_199
+. display N2017
+{res}355873
+{txt}
+{com}. //_^
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}E:\tsis\inespaña1\GRAPH\tabla1.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 5 May 2019, 03:00:22
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

@@ -1,0 +1,10 @@
+<pre><code class="language-s/">qui cd &quot;E:\tsis\inespaña1\DTA&quot;
+use baseFinal.dta, replace
+foreach A of 2007 2010 2013 2017 {
+sum PESON if ANOPAR==`A'
+Scalar define N`A'=r(N)
+display N`A'
+
+}
+</code></pre>
+<p>la media del 2007 es  <code>s N2007</code></p>

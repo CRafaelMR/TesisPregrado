@@ -1,0 +1,64 @@
+```s/
+qui cd "E:\tsis\inespaña1\DTA"
+use baseFinal.dta, replace
+foreach A in 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 {
+qui sum PESON if ANOPAR==`A'
+scalar define N`A'=r(N)
+scalar define PesoM`A'=round(r(mean),.1)
+scalar define PesoV`A'=round(r(sd),.01)
+qui sum malnut if ANOPAR==`A'
+scalar define ProMalnut`A'=round(r(mean),.001)
+scalar define ProMalnutV`A'=round(r(sd),.001)
+qui sum SEXO if ANOPAR==`A'
+scalar define sexom`A'=round(r(mean),.001)
+scalar define sexov`A'=round(r(sd),.001)
+qui sum Ct0 if ANOPAR==`A'
+scalar define HP`A'=r(mean)
+qui sum NUMH if ANOPAR==`A'
+scalar define NUMH`A'=round(r(mean),.01)
+scalar define NUMHV`A'=round(r(sd),.01)
+qui sum partner if ANOPAR==`A'
+scalar define part`A'=round(r(mean),.01)
+scalar define partv`A'=round(r(sd),.01)
+qui sum PIBES if ANOPAR==`A'
+scalar define pibesm`A'=r(mean)
+}
+
+*qui sum PESON if ANOPAR==2007
+*scalar define N2007=r(N)
+*scalar define M2007=r(mean)
+*qui sum PESON if ANOPAR==2008
+*scalar define N2008=r(N)
+*qui sum PESON if ANOPAR==2009
+*scalar define N2009=r(N)
+*}
+```
+la media del 2007 es  `s N2007`
+
+  | Año | 2007 | 2008 | 2009 | 2010|2011|2012|2013|2014|2015|2016|2017|
+  |:-----------|:-----:|:-------:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+  |resultados de nacimientos||||||||||||
+  |Peso| `s PesoM2007 `|`s PesoM2008`|`s PesoM2009` |`s PesoM2010` |`s PesoM2011` |`s PesoM2012` |`s PesoM2013` |`s PesoM2014` |`s PesoM2015` |`s PesoM2016` |`s PesoM2017` |
+  |  | (`s PesoV2007 `)|(`s PesoV2008`)|(`s PesoV2009`) |(`s PesoV2010`) |(`s PesoV2011`) |(`s PesoV2012`) |(`s PesoV2013`) |(`s PesoV2014`) |(`s PesoV2015`) |(`s PesoV2016`) |(`s PesoV2017`) |
+  |Proporción peso bajo 2500g | `s ProMalnut2007 `|`s ProMalnut2008`|`s ProMalnut2009` |`s ProMalnut2010` |`s ProMalnut2011` |`s ProMalnut2012` |`s ProMalnut2013` |`s ProMalnut2014` |`s ProMalnut2015` |`s ProMalnut2016` |`s ProMalnut2017` |
+  |  | (`s ProMalnutV2007 `)|(`s ProMalnutV2008`)|(`s ProMalnutV2009`) |(`s ProMalnutV2010`) |(`s ProMalnutV2011`) |(`s ProMalnutV2012`) |(`s ProMalnutV2013`) |(`s ProMalnutV2014` )|(`s ProMalnutV2015`) |(`s ProMalnutV2016`) |(`s ProMalnutV2017`) |
+  |Tasa de mortalidad infantil(cada 1000 nacidos vivos)|3,6|3.4|3.3|3.1|3.1|3|2.9|2.8|2.7|2.6|2.6|
+  |Tasa de mortalidad neonatal(cada 1000 nacidos vivos)|2,2|2.2|2.1|2.1|2.1|2.1|2|2|1.9|1.8|1.7|
+  |Tasa de natalidad,cruda (cada 1000 habitantes)|10,9| 11,3|10,6|10,4|10,1	|9,7|9,1|9,2|9|8,8|8,4|
+  |Proporción de mujeres(%)| `s sexom2007 `|`s sexom2008 `|`s sexom2009 `|`s sexom2010 `|`s sexom2011 `|`s sexom2012 `|`s sexom2013 `|`s sexom2014 `|`s sexom2015 `|`s sexom2016 `|`s sexom2017 `|
+  |  | (`s sexov2007 `)|(`s sexov2008 `)|(`s sexov2009 `)|(`s sexov2010 `)|(`s sexov2011 `)|(`s sexov2012 `)|(`s sexov2013 `)|(`s sexov2014 `)|(`s sexov2015 `)|(`s sexov2016 `)|(`s sexov2017 `)|
+  |Indicadores Economicos||||||||||||
+  |Tasa de crecimiento del PIB|`s round(1.865813028,.01)`|`s round(	-0.482674966,.01)`|`s round(	-4.424062114,.01)`|`s round(-0.445350775,.01)`|`s round(-1.349930077,.01)`|`s round(-2.990755144,.01)`|`s round(-1.383096773,.01)`|`s round(1.683527291,.01)`|`s round(	3.725128085,.01)`|`s round(	3.086610965,.01)`|`s round(2.736942516,.01)`|
+  |Componente cíclico-HP del crecimiento|`s HP2007`|`s HP2008`|`s HP2009`|`s HP2010`|`s HP2011`|`s HP2012`|`s HP2013`|`s HP2014`|`s HP2015`|`s HP2016`|`s HP2017`|
+  |Tasa de desempleo (estimada por ILO)(%)|`s round(8.232000351,.01)`|`s round(11.25399971,.01)`|`s round(17.85700035,.01)`|`s round(19.86000061,.01)`|`s round(21.38999939,.01)`|`s round(24.78700066,.01)`|`s round(26.09399986,.01)`|`s round(24.44099998,.01)`|`s round(22.05699921,.01)`|`s round(19.63500023,.01)`|`s round(17.22400093,.01)`|
+  |Tasa de desempleo con educación basica(%)|`s round(10.3373003,.01)`|`s round(15.10589981,.01)`|`s round(	24.25589943,.01)`|`s round(	26.9435997,.01)`|`s round(	28.58419991,.01)`|`s round(	33.43529892,.01)`|`s round(	35.0992012,.01)`|`s round(	33.09569931,.01)`|`s round(	30.36109924,.01)`|`s round(	27.45120049,.01)`|`s round(	24.51910019,.01)`|
+  |Tasa de desempleo con educación intermedia(%)|`s round(8.138699532,.01)`|`s round(10.45069981,.01)`|`s round(	16.83200073,.01)`|`s round(	18.97369957,.01)`|`s round(	21.16640091,.01)`|`s round(	24.10400009,.01)`|`s round(	25.85149956,.01)`|`s round(24.15839958,.01)`|`s round(	21.57290077,.01)`|`s round(	19.16139984,.01)`|`s round(16.97380066,.01)`|
+  |Tasa de desempleo con educación superior(%)| `s round(5.990799904,.01)`|`s round(6.305699825,.01)`|`s round(9.652000427,.01)`|`s round(11.15310001,.01)`|`s round(	12.48449993,.01)`|`s round(	14.88570023,.01)`|`s round(15.98009968,.01)`|`s round(14.74510002,.01)`|`s round(	13.18889999,.01)`|`s round(11.67199993,.01)`|`s round(9.964099884,.01)`|
+  |Proporción de personas bajo linea de pobreza (%)|1.5	|1.7|2.2|2.2|2.7|2.9|3.2|2.9|3.2|-|-|
+  |Gasto  en salud per capita (PPP)(%)|`s round(2579.310264,.01)`|`s round(	2791.107224,.01)`|`s round(	2918.820792,.01)`|`s round(	2888.51094,.01)`|`s round(	2920.111074,.01)`|`s round(	2900.339612,.01)`|`s round(	2935.834905,.01)`|`s round(	3039.959984,.01)`|`s round(	3175.133883,.01)`|`s round(3259.802775,.01)`|-|
+  |Caracteristicas de la madre||||||||||||
+  |Número total de partos |`s NUMH2007 `|`s NUMH2008 `|`s NUMH2009 `|`s NUMH2010 `|`s NUMH2011 `|`s NUMH2012 `|`s NUMH2013 `|`s NUMH2014 `|`s NUMH2015 `|`s NUMH2016 `|`s NUMH2017 `|
+  |  | (`s NUMHV2007 `)|(`s NUMHV2008 `)|(`s NUMHV2009 `)|(`s NUMHV2010 `)|(`s NUMHV2011 `)|(`s NUMHV2012 `)|(`s NUMHV2013 `)|(`s NUMHV2014 `)|(`s NUMHV2015 `)|(`s NUMHV2016 `)|(`s NUMHV2017 `)|
+  |Madre tiene pareja de hecho(fracción) |`s  part2007 `|`s  part2008 `|`s  part2009 `|`s  part2010 `|`s  part2011 `|`s  part2012 `|`s  part2013 `|`s  part2014 `|`s  part2015 `|`s  part2016 `|`s  part2017 `|
+  |  | (`s partv2007 `)|(`s partv2008 `)|(`s partv2009 `)|(`s partv2010 `)|(`s partv2011 `)|(`s partv2012 `)|(`s partv2013 `)|(`s partv2014 `)|(`s partv2015 `)|(`s partv2016 `)|(`s partv2017 `)|
+  |Observaciones | `s N2007 `|`s N2008`|`s N2009` |`s N2010` |`s N2011` |`s N2012` |`s N2013` |`s N2014` |`s N2015` |`s N2016` |`s N2017` |
